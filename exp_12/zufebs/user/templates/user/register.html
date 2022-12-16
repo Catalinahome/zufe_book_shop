@@ -1,0 +1,15 @@
+{% extends 'index/base.html' %}
+{% load static %}
+{% block content %}
+<div class="login">
+  <div class="login content">
+    <h3>用户注册</h3>
+    <form action="{% url 'reg' %}" method="post">
+      {% csrf_token %}
+      <table>{{form}}</table>
+      <p>{{msg}}</p>
+      <input type="submit" value="注册">
+    </form>
+  </div>
+</div>
+{% endblock %}

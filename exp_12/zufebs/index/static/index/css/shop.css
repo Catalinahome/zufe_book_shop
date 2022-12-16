@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+.shop{height: 3210px;}
+.shop .shop{background: #fff; margin-top: 20px; height: 3210px;}
+.shop #condition{height: 80px; display: table; border-top: solid 1px #ccc; margin-bottom: 10px;}
+.shop #condition dt{width: 100px; float: left; height: 30px; background: #ddd; border-bottom: solid 1px #ccc; line-height: 30px; text-align: right;}
+.shop #condition dd{width: 1140px; float: left; height: 30px; background: #eee; border-bottom: solid 1px #ccc; line-height: 30px; overflow: hidden;}
+.shop #condition dd a{display: inline-block; min-width: 80px; padding: 0 10px; height: 30px; line-height: 30px; text-align: left; color: #333; text-decoration: none;}
+.shop #condition dd a:hover{background: #047; color: #fff;}
+.shop .left{width: 198px; display: table; float: left; border: solid 1px #ccc;}
+.shop>.left>li:first-child{height: 50px; line-height: 50px; background: #ccc; padding: 0 20px; font-size: 18px; font-family: "微软雅黑";}
+.shop .left img{width: 180px; margin: auto;}
+.shop .left li ul{margin: 9px;}
+.shop .left li ul li{width: 180px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.shop .right{width: 1020px; display: table; float: right;}
+
+.shop>.right>li{width: 203px; float: left;}
+.shop ul li .bookname{font-size: 18px; color: #036; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.shop>ul>li>ul>li{margin: 5px;}
+.shop>ul>li>ul>li:first-child{text-align: center;}
+.shop ul li{vertical-align: top;}
+.shop ul li .price{font-size: 16px; text-decoration: line-through; }
+.shop ul li .nprice{color:#c00; font-weight: bold; font-size: 18px;}
+.shop ul li img.buy{margin:10px; cursor: pointer;}
+.shop ul li img.buy:hover{content:url(../images/bt_buy_hover.jpg); cursor: pointer;}
+.shop ul li img.fav{margin:10px; cursor: pointer; vertical-align: top;}
+.shop ul li img.fav:hover{content:url(../images/bt_fav_add.png); cursor: pointer; vertical-align: top;}
+
+.pagelist{height: 80px;}
+.pagelist .pagelist{background: #fff; margin-top: 20px; height: 80px;width: 1020px; padding-left: 220px;}
+.pagelist a{display: inline-block; width: 40px; height: 40px; margin:20px 0 20px 10px; line-height: 40px; background: #eee; border: solid 1px #ccc; text-align: center; text-decoration: none; font-size: 14px;}
+.pagelist a:hover{background: #047; color: #fff;}

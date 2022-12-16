@@ -1,0 +1,28 @@
+{% extends 'index/base.html' %}
+{% load static %}
+{% block content %}
+
+<form action="{% url 'finalorder' %}" method="post">
+    {% csrf_token %}
+    {% for c in cartlist %}
+    <li>
+        <ul class="cartitem">
+            <li class="select"><img src="/{{c.book_pic}}"></li>
+            <li class="cname">{{c.book_name}}</li>
+            <li class="cprice"><span>{{c.book_price}}</span></li>
+            <li class="cnum">{{c.cart_num}}</li>
+            <li class="ctotal"><span></span></li>
+        </ul>
+    </li>
+    {% endfor %}
+    <dl>
+        <dt>收件人：</dt><dd><input name="recname"></dd>
+        <dt>地址：</dt><dd><input name="address" id="add"></dd>
+        <dt>电话：</dt><dd><input name="tel"></dd>
+        <dt>支付方式：</dt><dd><select name="payment"><option value="微信">微信</option><option value="支付宝">支付宝</option></select></dd>
+        <dt><input type="hidden" name="clist" value="{{clist}}">
+            <input type="hidden" name="blist" value="{{blist}}">
+            <input type="hidden" name="nlist" value="{{nlist}}"></dt><dd><input type="image" src="{% static 'cart/images/cart.png' %}"></dd>
+    </dl>
+</form>
+{% endblock %}

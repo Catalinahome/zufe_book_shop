@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+.cartlist{min-height: 300px;}
+.cartlist .cartlist{background: #fff; margin-top: 20px; min-height: 300px; }
+.cartlist #clist>li>ul{width: 1240px}
+.cartlist #clist>li>ul>li{float: left; height: 80px; padding: 10px;}
+.cartlist #clist>li:first-child>ul>li{height: 30px;}
+.cartlist #clist>li>ul>.select0, .cartlist #clist>li>ul>.select{width: 150px; vertical-align: top; line-height: 40px;}
+.cartlist #clist>li>ul>.select img{width: 80px; height: 80px;}
+.cartlist #clist>li>ul>.cname{width: 400px; }
+.cartlist #clist>li>ul>.cprice{width: 150px; }
+.cartlist #clist>li>ul>.cnum{width: 250px; }
+.cartlist #clist>li>ul>.cnum>input[type='text']{width: 50px;}
+.cartlist #clist>li>ul>.ctotal{width: 150px; }
+.cartlist #clist>li>ul>.cprice span::before, .cartlist #clist>li>ul>.ctotal span::before{content:'￥'}
+.cartlist #sum{height: 60px; padding-left: 20px; clear: both; font-size: 18px; line-height: 60px;}

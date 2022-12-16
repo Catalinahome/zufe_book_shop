@@ -1,0 +1,45 @@
+{% extends 'index/base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'cart/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
+    <script src="{% static 'cart/js/jquery-1.4.2.min.js' %}"></script>
+    <script src="{% static 'cart/js/cart.js' %}"></script>
+
+    <form action="{% url 'conforder' %}" method="post">
+        {% csrf_token %}
+        <div class="cartlist">
+            <div class="cartlist content">
+                <div class="title">• 购物车</div>
+                <ul id="clist">
+                    <li>
+                        <ul>
+                            <li class="select0">
+                                <input type="checkbox" value="0">全部选中
+                            </li>
+                            <li class="cname">商品</li>
+                            <li class="cprice">单价</li>
+                            <li class="cnum">数量</li>
+                            <li class="ctotal">小计</li>
+                        </ul>
+                    </li>
+                    {% for c in cartinfo %}
+                    <li>
+                        <ul class="cartitem">
+                            <li class="select">
+                                <input type="checkbox"  value="1"><img src="/{{c.book_pic}}"></li>
+                            <li class="cname">{{c.cart_bid}}</li>
+                            <li class="cprice"><span>{{c.book_price}}</span></li>
+                            <li class="cnum">
+                                <input type="button" value="-"><input type="text" value="{{c.cart_num}}">
+                                <input type="button" value="+"></li>
+                            <li class="ctotal"><span></span></li>
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div id="sum">• 合计 <span id="sum_num"></span>件， <span id="sum_price"></span>元 <button  type="submit" class="btn btn-primary">确认提交</button></div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

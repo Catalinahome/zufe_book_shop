@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+.newslist{height: 1150px;}
+.newslist .newslist{background: #fff; margin-top: 20px; height: 1150px;}
+.newslist #position{height: 40px; display: table; border-top: solid 1px #ccc; margin-bottom: 10px;}
+.newslist #position dt{width: 100px; float: left; height: 40px; background: #ddd; border-bottom: solid 1px #ccc; line-height: 40px; text-align: right;}
+.newslist #position dd{width: 1140px; float: left; height: 40px; background: #eee; border-bottom: solid 1px #ccc; line-height: 40px; overflow: hidden;}
+.newslist #position dd a{color: #333; text-decoration: none;}
+.newslist #position dd a:hover{color: #900;}
+.newslist #position dd a::before{content:' > '}
+.newslist #position dd a:first-child::before{content:''; margin-left: 20px;}
+.newslist ul li{height: 30px; margin: 10px 30px 0; font-size: 16px; border-bottom: solid 1px #ccc; line-height: 30px;}
+.newslist ul li:first-child{height: 60px; background: #fff; font-weight: normal; font-size: 24px; font-family: "微软雅黑"; line-height: 60px; margin: 10px 20px 10px; border: none;}
+.newslist ul li .newsname::before{content:"\e9e7"; font-family:'boxicons'!important;}
+.newslist ul li:hover{border-bottom: solid 1px #036;}
+.newslist ul li:first-child:hover{border: none;}
+.newslist ul li .newstime{float: right;}
+.newslist ul li a{color: #333; text-decoration: none;}
+.newslist ul li a:hover{color: #900;}
+
+.pagelist{height: 80px;}
+.pagelist .pagelist{background: #fff; margin-top: 20px; height: 80px;width: 1200px; padding-left: 40px;}
+.pagelist a{display: inline-block; width: 40px; height: 40px; margin:20px 10px 20px 0; line-height: 40px; background: #eee; border: solid 1px #ccc; text-align: center; text-decoration: none; font-size: 14px;}
+.pagelist a:hover{background: #047; color: #fff;}

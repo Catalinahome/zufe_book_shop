@@ -1,0 +1,173 @@
+{% extends 'index/base.html' %}
+{% load static %}
+<script>
+    $(function(){
+        $(".a_buy").click(function(){
+            $.get("{% url 'addcart' %}?bid="+$(this).attr("bid")+"&num=1",function(data,status){
+                alert("成功加入购物车！");
+            });
+        })
+    })
+</script>
+
+{% block content %}
+<div class="pic">
+    <div class="box">
+        <div class="box-1">
+            <ul>
+                <li>
+                    <img src="{% static 'index/images/1.jpg' %}" alt="这里是第一场图片"></img>
+                    <h2>这里是第一张图片这里是第一张图片</h2>
+                </li>
+                <li>
+                    <img src="{% static 'index/images/2.jpg' %}" alt="这里是第二张图片"></img>
+                    <h2>这里是第二张图片这里是第二张图片</h2>
+                </li>
+                <li>
+                    <img src="{% static 'index/images/3.jpg' %}" alt="这里是第三张图片"></img>
+                    <h2>这里是第三张图片这里是第三张图片</h2>
+                </li>
+                <li>
+                    <img src="{% static 'index/images/4.jpg' %}" alt="这里是第一场图片"></img>
+                    <h2>这里是第四张图片这里是第四张图片</h2>
+                </li>
+                <li>
+                    <img src="{% static 'index/images/5.jpg' %}" alt="这里是第一场图片"></img>
+                    <h2>这里是第五张图片这里是第五张图片</h2>
+                </li>
+            </ul>
+        </div>
+        <div class="box-2">
+            <ul>
+                
+            </ul>
+        </div>
+        <div class="box-3">
+            <span class="prev"> < </span>
+            <span class="next"> > </span>
+        </div>
+    </div>
+</div>
+<div class="special">
+    <div class="special content">
+        <div class="title">• 每日特价</div>
+        <ul id="speciallist">
+            <li><dl>
+                <dt><img src="{% static 'images/book/book1.jpg' %}"></dt>
+                <dd>
+                    <p class="bookname" title="Python语言程序设计基础">Python语言程序设计基础</p>
+                    <p title="嵩天，礼欣，黄天羽 著">嵩天，礼欣，黄天羽 著</p>
+                    <p>清华大学出版社</p>
+                    <p><span class="price">￥39.90</span><span class="nprice">￥31.80</span></p>
+                    <p><a href="#" class="a_buy" bid="{{b.id}}"><img src="{% static 'images/bt_buy_normal.jpg' %}" class="buy"></a></p>
+                </dd>
+            </dl></li>
+            <li><dl>
+                <dt><img src="{% static 'images/book/book2.jpg' %}"></dt>
+                <dd>
+                    <p class="bookname" title="Python与数据挖掘">Python与数据挖掘</p>
+                    <p title="张良均，杨海宏，何子健，杨征 等 著">张良均，杨海宏，何子健，杨征 等 著</p>
+                    <p>人民邮电出版社</p>
+                    <p><span class="price">￥49.00</span><span class="nprice">￥39.80</span></p>
+                    <p><a href="#" class="a_buy" bid="{{b.id}}"><img src="{% static 'images/bt_buy_normal.jpg' %}" class="buy"></a></p>
+                </dd>
+            </dl></li>
+            <li><dl>
+                <dt><img src="{% static 'images/book/book3.jpg' %}"></dt>
+                <dd>
+                    <p class="bookname" title="Python深度学习">Python深度学习</p>
+                    <p title="[美] 弗朗索瓦·肖莱（Francois Chollet） 著">[美] 弗朗索瓦·肖莱（Francois Chollet） 著</p>
+                    <p>人民邮电出版社</p>
+                    <p><span class="price">￥119.90</span><span class="nprice">￥89.80</span></p>
+                    <p><a href="#" class="a_buy" bid="{{b.id}}"><img src="{% static 'images/bt_buy_normal.jpg' %}" class="buy"></a></p>
+                </dd>
+            </dl></li>
+        </ul>
+    </div>
+</div>
+<div class="latest">
+    <div class="latest content">
+        <div class="title">• 新书上架</div>
+        <ul id="latestlist">
+            {% for b in blist1 %}
+            <li><ul>
+                <dt><img src="/{{b.book_pic}}"></dt>
+                <dd>
+                    <li class="bookname" title="{{b.book_name}}">{{b.book_name}}</li>
+                    <li title="{{b.book_author}}">{{b.book_author}}</li>
+                    <li>{{b.book_press}}</li>
+                    <li><span class="price">¥{{b.book_price}}</span><span class="nprice">¥ 31.80</span></li>
+                    <li><a href="{% url 'addcart' %}?bid={{b.id}}&num=1"><img src="{% static 'images/bt_buy_normal.jpg'%}" class="buy"></a></li>
+                </dd>
+            </ul></li>
+            {% endfor %}
+        </ul>        
+    </div>
+</div>
+<div class="latest">
+    <div class="latest content">
+        <div class="title">• 热销图书</div>
+        <ul id="bestlist">
+            {% for b in blist1 %}
+            <li><ul>
+                <dt><img src="/{{b.book_pic}}"></dt>
+                <dd>
+                    <li class="bookname" title="{{b.book_name}}">{{b.book_name}}</li>
+                    <li title="{{b.book_author}}">{{b.book_author}}</li>
+                    <li>{{b.book_press}}</li>
+                    <li><span class="price">¥{{b.book_price}}</span><span class="nprice">¥ 31.80</span></li>
+                    <li><a href="{% url 'addcart' %}?bid={{b.id}}&num=1"><img src="{% static 'images/bt_buy_normal.jpg'%}" class="buy"></a>
+                         <img src="{% static 'images/bt_fav_normal.png'%}" class="fav" title="点击收藏"></li>
+                </dd>
+            </ul></li>
+            {% endfor %}
+        </ul>        
+    </div>
+</div>
+<div class="info">
+    <div class="info content">
+        <ul>
+            <li id="shipping">全国100个城市包邮</li>
+            <li id="return">30天无理由退货</li>
+            <li id="payment">100%安全支付保障</li>
+            <li id="support">24*7在线客服</li>
+        </ul>
+    </div>
+</div>
+<div class="news">
+    <div class="news content">
+        <div class="title">• 新闻</div>
+        <ul id="newslist">
+            <li><ul>
+                <li class="newspic"><img src="{% static 'images/news/n1.jpg'%}"></li>
+                <li class="newstype"><a href="#">学术交流</a><a href="#">人才培养</a><a href="#">学科发展</a></li>
+                <li class="newsname" title="张文宇教授在FCES 2022未来计算机教育峰会作主旨报告"><a href="#">张文宇教授在FCES 2022未来计算机教育峰会作主旨报告</a></li>
+                <li class="newsdate">2022年7月25日</li>
+                <li class="newscontent">7月21日-23日，由中国计算机学会主办，苏州大学承办的2022未来计算机教育峰会（FCES 2022）在苏州市CCF业务总部召开。本次峰会以“支撑科技自立自强的教育体系”为主题，从核心课程、校企合作、竞赛、学科交叉、教育碎片化、科研和教育融合、数字化转型、国际化等视角，探讨具有科研能力、工程能力的创新型人才培养所面临的问题和挑战，通过研讨分析问题本质，给出解决问题的思路，推动计算机教育的进步。</li>
+            </ul></li>
+            <li><ul>
+                <li class="newspic"><img src="{% static 'images/news/n2.jpg'%}"></li>
+                <li class="newstype"><a href="#">社会服务</a><a href="#">共同富裕</a><a href="#">专业建设</a></li>
+                <li class="newsname" title="浙江财经大学“教授博士电商服务团”助力松阳、景宁迈向共富"><a href="#">浙江财经大学“教授博士电商服务团”助力松阳、景宁迈向共富</a></li>
+                <li class="newsdate">2022年8月3日</li>
+                <li class="newscontent">为进一步推动浙江财经大学与丽水地区的深度合作，充分融合学校、企业和地方政府的优质资源，更好的发挥电子商务在共同富裕中的重要作用，浙财大信智学院“教授博士电商服务团”来到丽水市的松阳县和景宁县，开展了多项战略咨询和人才支持服务，取得了圆满成功。</li>
+            </ul></li>
+        </ul>
+    </div>
+</div>
+<div class="press">
+    <div class="press content">
+        <div class="title">• 合作出版社</div>
+        <ul>
+            <li><img src="{% static 'images/press/thup.jpg'%}"><div>清华大学出版社</div></li>
+            <li><img src="{% static 'images/press/pkup.jpg'%}"><div>北京大学出版社</div></li>
+            <li><img src="{% static 'images/press/cmp.jpg'%}"><div>机械工业出版社</div></li>
+            <li><img src="{% static 'images/press/phei.jpg'%}"><div>电子工业出版社</div></li>
+            <li><img src="{% static 'images/press/ptp.jpg'%}"><div>人民邮电出版社</div></li>
+            <li><img src="{% static 'images/press/zjup.jpg'%}"><div>浙江大学出版社</div></li>
+            <li><img src="{% static 'images/press/sjtup.jpg'%}"><div>上海交通大学出版社</div></li>
+            <li><img src="{% static 'images/press/sp.jpg'%}"><div>科学出版社</div></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

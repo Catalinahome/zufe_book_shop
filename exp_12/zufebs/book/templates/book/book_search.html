@@ -1,0 +1,49 @@
+{% extends 'index/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="latest">
+    <div class="latest content">
+        <div class="title">• 搜索结果</div>
+        <ul id="latestlist">
+            {% for b in blist1 %}
+            <li><ul>
+                <dt><img src="/{{b.book_pic}}"></dt>
+                <dd>
+                    <li class="bookname" title="{{b.book_name}}">{{b.book_name}}</li>
+                    <li title="{{b.book_author}}">{{b.book_author}}</li>
+                    <li>{{b.book_press}}</li>
+                    <li><span class="price">¥{{b.book_price}}</span><span class="nprice">¥ 31.80</span></li>
+                    <li><a href="{% url 'addcart' %}?bid={{b.id}}&num=1"><img src="{% static 'images/bt_buy_normal.jpg'%}" class="buy"></a></li>
+                </dd>
+            </ul></li>
+            {% endfor %}
+        </ul>        
+    </div>
+</div>
+<div class="info">
+    <div class="info content">
+        <ul>
+            <li id="shipping">全国100个城市包邮</li>
+            <li id="return">30天无理由退货</li>
+            <li id="payment">100%安全支付保障</li>
+            <li id="support">24*7在线客服</li>
+        </ul>
+    </div>
+</div>
+<div class="press">
+    <div class="press content">
+        <div class="title">• 合作出版社</div>
+        <ul>
+            <li><img src="{% static 'images/press/thup.jpg'%}"><div>清华大学出版社</div></li>
+            <li><img src="{% static 'images/press/pkup.jpg'%}"><div>北京大学出版社</div></li>
+            <li><img src="{% static 'images/press/cmp.jpg'%}"><div>机械工业出版社</div></li>
+            <li><img src="{% static 'images/press/phei.jpg'%}"><div>电子工业出版社</div></li>
+            <li><img src="{% static 'images/press/ptp.jpg'%}"><div>人民邮电出版社</div></li>
+            <li><img src="{% static 'images/press/zjup.jpg'%}"><div>浙江大学出版社</div></li>
+            <li><img src="{% static 'images/press/sjtup.jpg'%}"><div>上海交通大学出版社</div></li>
+            <li><img src="{% static 'images/press/sp.jpg'%}"><div>科学出版社</div></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

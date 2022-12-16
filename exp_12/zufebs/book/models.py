@@ -23,3 +23,7 @@ def get_all_book():
 
 def get_book_by_time():
     return t_book.objects.order_by('book_date')
+
+
+def search_book(bname):
+    return t_book.objects.filter(book_name=bname)

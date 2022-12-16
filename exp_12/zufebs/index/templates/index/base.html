@@ -13,15 +13,16 @@
 <body>
 <div class="top">
     <div class="top content">
-        <div class="lf welcome">欢迎访问财大书城！{% if uname != '' %}{{uname}}【<a href="{% url 'logout' %}" class="user">注销</a>】{% else %}【<a href="{% url 'login' %}" class="user">登录</a>】 【<a href="{% url 'reg' %}" class="user">注册</a>】{% endif %}</div>
+        <div class="lf welcome">欢迎访问财大书城！{% if uname != '' %}{{uname}}【<a href="{% url 'logout' %}" class="user" style="color:white;">注销</a>】{% else %}【<a href="{% url 'login' %}" class="user" style="color:white;">登录</a>】 【<a href="{% url 'reg' %}" class="user" style="color:white;">注册</a>】{% endif %}</div>
         <div class="rt channel"><a href="#" id="weibo"></a><a href="#" id="wechat"></a><a href="#" id="tel"></a></div>
     </div>
 </div>
 <div class="header">
     <div class="header content">
         <div id="logo" class="lf"><img src="{% static 'index/images/logo_1.png' %}"><img src="{% static 'index/images/logo_2.png' %}"></div>
-        <div id="search" class="lf"><form action="#" method="post">
-            <input id="search_box" class="lf" placeholder="search">
+        <div id="search" class="lf"><form action="{% url 'search' %}" method="post">
+            {% csrf_token %}
+            <input id="search_box" class="lf" placeholder="search" name="name">
             <input id="search_btn" class="lf" type="submit" value=""></form></div>
         <div id="cart" class="rt">
             <a href="{% url 'cart' %}" id="cartlink"><img src="{% static 'index/images/cart.png'%}" class="lf">

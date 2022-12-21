@@ -28,12 +28,14 @@ def get_cart(request):
     })
 
 
+# 删除购物车函数
 def delete_cart(request):
     cart_id = request.GET['cid']
     delete_cart_by_id(cart_id)
     return redirect('/cart/')
 
 
+# 返回订单数据渲染订单确认前端页面
 @csrf_protect
 def conforder(request):
     clist = request.POST.getlist('sel', 0)  # 获取下单的商品编号（购物车id）
@@ -51,6 +53,7 @@ def conforder(request):
     })
 
 
+# 提交订单函数
 @csrf_protect
 def finalorder(request):
     uid = request.session.get('uid', 0)

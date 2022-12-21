@@ -17,7 +17,7 @@ from django.contrib.auth.models import User
 #     is_active = models.BooleanField( …… )
 #     date_joined = models.DateTimeField( …… )
 
-
+#
 def check_uname(uname):
     user = User.objects.filter(username=uname)
     return user.exists()

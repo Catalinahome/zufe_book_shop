@@ -3,14 +3,14 @@ from django import forms
 from django.contrib.auth import authenticate
 from .models import add_user, check_uname
 
-# Create your views here.
 
-
+# 登录表单类
 class loginForm(forms.Form):
     username = forms.CharField(label='用户名')
     password = forms.CharField(label='密码')
 
 
+# 登录函数，通过session保持登录状态
 def login(request):
     if request.method == 'POST':
         loginform = loginForm(request.POST)
@@ -30,11 +30,13 @@ def login(request):
     return render(request, 'user/login.html', {'form': loginform, 'msg': msg, 'user': user, 'uname': username})
 
 
+# 注销函数
 def logout(request):
     request.session.clear()
     return redirect('/index/')
 
 
+# 注册表单类
 class regForm(forms.Form):
     username = forms.CharField(label='用户名', label_suffix='：', initial='username', help_text='必填',
                                error_messages={'required': '必须提供username'})
@@ -58,6 +60,7 @@ class regForm(forms.Form):
     profile = forms.CharField(label='简介', widget=forms.Textarea, required=False)
 
 
+# 注册函数
 def register(request):
     if request.method == 'POST':
         regform = regForm(request.POST)
@@ -73,5 +76,3 @@ def register(request):
         'form': regform,
         'msg': msg,
     })
-
-

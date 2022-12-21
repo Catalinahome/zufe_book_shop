@@ -2,7 +2,7 @@ from django.db import models
 import datetime
 
 
-# Create your models here.
+# 创建购物车模型
 class t_cart(models.Model):
     cart_uid = models.IntegerField()
     cart_bid = models.IntegerField()
@@ -10,6 +10,7 @@ class t_cart(models.Model):
     cart_time = models.DateTimeField(auto_now_add=True)
 
 
+# 创建购物车模型
 class v_cart(models.Model):
     id = models.AutoField(primary_key=True)
     book_name = models.CharField(null=False, max_length=20)
@@ -31,11 +32,13 @@ def add_cart(uid, bid, num):
     mycart.save()
 
 
+# 通过uid查询购物车记录的方法
 def get_cart_by_user(uid):
     mycart = v_cart.objects.filter(cart_uid=uid)
     return mycart
 
 
+# 通过tid查询购物车记录的方法
 def get_cart_by_list(tid):
     order_list = v_cart.objects.filter(id=tid)
     return order_list
@@ -53,10 +56,12 @@ def update_cart_by_book(uid, bid, num):
     cartitem.save()
 
 
+# 删除购物车
 def delete_cart_by_id(cid):
     t_cart.objects.get(id=cid).delete()
 
 
+# 创建order模型
 class t_order(models.Model):
     order_uid = models.IntegerField(default=0)
     order_name = models.CharField(max_length=30)
@@ -84,12 +89,14 @@ def get_id_by_user(uid):
     return order_list.id
 
 
+# 创建orderitem模型
 class t_orderitem(models.Model):
     order_oid = models.IntegerField()
     order_bid = models.IntegerField()
     order_num = models.IntegerField()
 
 
+# 增加orderitem的方法
 def add_orderitem(oid, bid, num):
     myorderitem = t_orderitem.objects.create(order_oid=oid, order_bid=bid, order_num=num)
     myorderitem.save()

@@ -16,6 +16,8 @@ Including another URLconf
 from django.urls import path, include
 from django.contrib import admin
 
+
+# 总路由配置，添加加各应用的路由
 urlpatterns = [
     path('index/', include('index.urls')),
     path('admin/', admin.site.urls),
